@@ -1,0 +1,63 @@
+<% 
+  const pageContent = `
+    <div class="admin-header">
+      <h1>广告位置管理</h1>
+      <a href="/admin/ad-positions/add" class="btn btn-primary">
+        <i class="fa fa-plus"></i> 新增广告位置
+      </a>
+    </div>
+
+    <div class="admin-content">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>位置名称</th>
+            <th>位置标识</th>
+            <th>样式预览</th>
+            <th>排序</th>
+            <th>状态</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% positions.forEach(position => { %>
+            <tr>
+              <td><%= position.name %></td>
+              <td><%= position.key %></td>
+              <td>
+                <div class="style-preview" style="
+                      width: 120px;
+                      height: 40px;
+                      background-color: <%= position.style.backgroundColor %>;
+                      border: 1px solid <%= position.style.borderColor %>;
+                      padding: 5px;">
+                  <span style="
+                        color: <%= position.style.titleColor %>;
+                        background-color: <%= position.style.titleBgColor %>;
+                        padding: 2px 5px;
+                        font-size: 12px;">
+                    <%= position.name %>
+                  </span>
+                </div>
+              </td>
+              <td><%= position.sort %></td>
+              <td><%= position.isActive ? '启用' : '禁用' %></td>
+              <td>
+                <a href="/admin/ad-positions/delete/<%= position._id %>" class="btn btn-danger btn-sm"
+                   onclick="return confirm('确定要删除这个位置吗？关联的广告也会被删除！')">
+                  <i class="fa fa-trash"></i> 删除
+                </a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  `;
+%>
+
+<!-- 引入后台布局 -->
+<%- include('../layouts/admin-main', { 
+  title: '广告位置管理 - 58信息网后台',
+  content: pageContent
+}) %>

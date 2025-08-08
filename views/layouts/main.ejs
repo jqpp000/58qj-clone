@@ -1,0 +1,93 @@
+<!-- 轮播与定时功能脚本 -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. 定时轮播核心函数（支持自动切换+手动点击）
+    function initCarousel(carouselId, dotContainerId, interval = 5000) {
+      const carousel = document.getElementById(carouselId);
+      if (!carousel) return;
+      
+      const dotsContainer = dotContainerId ? document.getElementById(dotContainerId) : carousel.nextElementSibling;
+      const items = carousel.getElementsByClassName('carousel-item');
+      const dots = dotsContainer ? dotsContainer.getElementsByClassName('dot') : [];
+      
+      if (items.length <= 1) return;
+      
+      let currentIndex = 0;
+      let timer;
+      
+      // 切换到指定索引
+      function showIndex(index) {
+        // 隐藏所有项
+        for (let i = 0; i < items.length; i++) {
+          items[i].classList.remove('active');
+          if (dots[i]) dots[i].classList.remove('active');
+        }
+        // 显示当前项
+        currentIndex = index;
+        items[currentIndex].classList.add('active');
+        if (dots[currentIndex]) dots[currentIndex].classList.add('active');
+      }
+      
+      // 下一项
+      function nextItem() {
+        currentIndex = (currentIndex + 1) % items.length;
+        showIndex(currentIndex);
+      }
+      
+      // 启动定时轮播（核心：定时切换）
+      function startTimer() {
+        timer = setInterval(nextItem, interval);
+      }
+      
+      // 点击圆点切换
+      if (dots.length > 0) {
+        for (let i = 0; i < dots.length; i++) {
+          dots[i].addEventListener('click', function() {
+            clearInterval(timer); // 点击时暂停定时
+            showIndex(i);
+            startTimer(); // 重新开始定时
+          });
+        }
+      }
+      
+      // 鼠标悬停暂停轮播
+      carousel.addEventListener('mouseenter', function() {
+        clearInterval(timer);
+      });
+      
+      // 鼠标离开继续轮播
+      carousel.addEventListener('mouseleave', function() {
+        startTimer();
+      });
+      
+      // 初始化并启动
+      showIndex(0);
+      startTimer();
+    }
+    
+    // 2. 初始化所有轮播（定时置顶广告+侧边栏广告）
+    initCarousel('top-carousel', 'top-dots', 5000); // 顶部置顶广告，5秒切换一次
+    initCarousel('sidebar-carousel-1', null, 6000); // 侧边广告1，6秒切换一次
+    initCarousel('sidebar-carousel-2', null, 7000); // 侧边广告2，7秒切换一次
+    
+    // 3. 模拟定时置顶倒计时（实际项目需后端配合）
+    function updateStickyTime() {
+      const timeElements = document.getElementsByClassName('sticky-time');
+      for (let el of timeElements) {
+        const text = el.innerText;
+        const hours = parseInt(text.match(/\d+/)[0]);
+        if (hours > 0) {
+          el.innerText = `剩余置顶时间: ${hours - 1}小时`;
+        } else {
+          el.innerText = `置顶已结束`;
+          el.style.backgroundColor = '#ffebee';
+          el.style.color = '#e53935';
+        }
+      }
+    }
+    
+    // 每小时更新一次置顶时间（实际项目中由后端控制）
+    setInterval(updateStickyTime, 3600000);
+  });
+</script>
+    

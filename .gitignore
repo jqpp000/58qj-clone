@@ -1,0 +1,14 @@
+# 依赖包（体积大，可通过 npm install 重装）
+node_modules/  
+
+# 环境变量（可能包含密码、密钥）
+.env  
+
+# 日志文件
+*.log  
+
+# Mac 系统隐藏文件
+.DS_Store  
+
+# VS Code 配置（本地编辑器配置，无需上传）
+.vscode/  

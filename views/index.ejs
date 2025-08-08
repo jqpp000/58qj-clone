@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>传奇发布网 - 最新开服信息</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* 全局样式 - 小型字体 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #2E220A; /* 页面背景色 */
+            color: #ccc; /* 文字颜色适配深色背景 */
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            font-size: 12px; /* 全局小型字体 */
+            line-height: 1.4; /* 紧凑行高 */
+        }
+
+        /* 容器 */
+        .container {
+            width: 1000px;
+            margin: 0 auto;
+            padding: 0;
+            background-color: #fff; /* 内容区域白色背景 */
+        }
+
+        /* 顶部横幅 */
+        .top-banner {
+            width: 1000px;
+            height: 120px;
+            margin: 0 auto;
+            overflow: hidden;
+            display: block;
+        }
+        .top-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* 广告联系方式 */
+        .ad-contact {
+            background-color: #f8f8f8;
+            height: 40px; /* 紧凑高度 */
+            line-height: 40px; /* 垂直居中 */
+            border: 1px solid #e0e0e0;
+            border-top: none;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            font-size: 12px; /* 小型字体 */
+            color: #333; /* 适配浅色背景 */
+        }
+        .ad-contact strong {
+            color: #e53e3e;
+            margin: 0 8px;
+            font-weight: bold;
+        }
+        .ad-contact a {
+            color: #165dd9;
+            text-decoration: none;
+            margin: 0 12px;
+        }
+        .ad-contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* 开服表标题 */
+        .server-list-title {
+            background-color: #e53e3e;
+            color: white;
+            padding: 6px 15px; /* 紧凑内边距 */
+            font-size: 14px; /* 标题稍大 */
+            font-weight: bold;
+            margin: 0;
+            border: 1px solid #e53e3e;
+            border-top: none;
+        }
+        .server-list-title i {
+            margin-right: 6px;
+        }
+
+        /* 开服表格 */
+        .server-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-top: none;
+            margin: 0;
+        }
+
+        /* 表头样式 */
+        .server-table th {
+            background-color: #f5f5f5;
+            color: #333;
+            font-weight: bold;
+            font-size: 12px; /* 表头使用小型字体 */
+            padding: 6px 5px; /* 统一内边距 */
+            border: 1px solid #e0e0e0;
+            text-align: center; /* 居中显示 */
+            height: 36px; /* 固定行高 */
+        }
+
+        /* 表格内容样式 */
+        .server-table td {
+            padding: 6px 5px; /* 与表头相同的内边距 */
+            border: 1px solid #e0e0e0;
+            font-size: 12px; /* 小型字体 */
+            text-align: center; /* 居中显示 */
+            height: 36px; /* 与表头相同的行高 */
+            vertical-align: middle; /* 垂直居中 */
+            color: #333;
+        }
+
+        /* 版本特色列左对齐 */
+        .server-table td:nth-child(3) {
+            text-align: left;
+            padding-left: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* 交替行背景 */
+        .server-table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        /* 链接样式 */
+        .server-table a {
+            color: #165dd9;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        .server-table a:hover {
+            color: #e53e3e;
+            text-decoration: underline;
+        }
+
+        /* 新区标识 */
+        .new-server {
+            color: #e53e3e;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        /* 页脚 - 调整为与顶部同宽且渐变金黄色背景 */
+        .footer {
+            /* 与顶部横幅同宽 */
+            width: 1000px;
+            margin: 0 auto;
+            /* 渐变金黄色背景 */
+            background: linear-gradient(135deg, #f9d835 0%, #f7971e 100%);
+            text-align: center;
+            padding: 12px 0;
+            font-size: 12px; /* 小型字体 */
+            color: #333; /* 深色文字适配金黄色背景 */
+            font-weight: bold;
+        }
+        .footer p {
+            margin: 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部横幅 -->
+    <div class="top-banner">
+        <img src="https://picsum.photos/1000/120?random=58" alt="传奇发布网横幅" 
+             onerror="this.src='https://picsum.photos/1000/120?random=1'">
+    </div>
+
+    <!-- 容器 -->
+    <div class="container">
+        <!-- 广告联系方式 -->
+        <div class="ad-contact">
+            <span>客服QQ：</span>
+            <strong>88888888</strong>
+            <span>玩家交流群：</span>
+            <strong>777777777</strong>
+            <span>官方网站：</span>
+            <a href="#" target="_blank">www.xxx.com</a>
+            <span>24小时在线客服</span>
+        </div>
+
+        <!-- 开服表标题 -->
+        <div class="server-list-title">
+            <i class="fa fa-gamepad"></i> 今日最新开服信息
+        </div>
+
+        <!-- 开服表格 -->
+        <table class="server-table">
+            <tr>
+                <th width="160">服务器名称</th>
+                <th width="120">开服时间</th>
+                <th width="350">版本特色</th>
+                <th width="80">经验倍率</th>
+                <th width="100">游戏版本</th>
+                <th width="90">进入游戏</th>
+            </tr>
+            <tr>
+                <td>★热血传奇·复古1.76★</td>
+                <td class="new-server">10:00 开放</td>
+                <td>无商城·纯复古·金币版</td>
+                <td>10倍</td>
+                <td>1.76复古</td>
+                <td><a href="#" target="_blank">立即进入</a></td>
+            </tr>
+            <tr>
+                <td>♛战神引擎·变态单职业♛</td>
+                <td class="new-server">14:00 开放</td>
+                <td>上线满V·刀刀切割</td>
+                <td>1000倍</td>
+                <td>单职业变态</td>
+                <td><a href="#" target="_blank">立即进入</a></td>
+            </tr>
+            <tr>
+                <td>✪传世怀旧·元神版✪</td>
+                <td class="new-server">18:00 开放</td>
+                <td>带元神·复古玩法</td>
+                <td>5倍</td>
+                <td>传世怀旧</td>
+                <td><a href="#" target="_blank">立即进入</a></td>
+            </tr>
+            <tr>
+                <td>☆冰雪之城·三职业☆</td>
+                <td>20:00 开放</td>
+                <td>冰雪经典·三职业平衡</td>
+                <td>50倍</td>
+                <td>冰雪三职业</td>
+                <td><a href="#" target="_blank">立即进入</a></td>
+            </tr>
+            <tr>
+                <td>◇火龙复古·微变版◇</td>
+                <td>22:00 开放</td>
+                <td>火龙套装·微变属性</td>
+                <td>20倍</td>
+                <td>火龙微变</td>
+                <td><a href="#" target="_blank">立即进入</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <p>© 2023 传奇发布网 - 最新开服信息平台</p>
+        <p>免责声明：本网站仅提供游戏信息参考</p>
+        <p>联系QQ：88888888 | 玩家交流群：777777777</p>
+    </div>
+</body>
+</html>
+    

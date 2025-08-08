@@ -1,0 +1,448 @@
+/* 基础样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei", Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #e4393c;
+  text-decoration: underline;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 3px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #e4393c; /* 58qj红色 */
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #c81623; /* 深红色hover */
+  color: white;
+  text-decoration: none;
+}
+
+/* 顶部搜索栏（58qj核心特征） */
+.search-bar {
+  background-color: #e4393c;
+  padding: 10px 0;
+}
+
+.search-bar .container {
+  display: flex;
+  gap: 10px;
+}
+
+.search-input {
+  flex: 1;
+  height: 36px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-btn {
+  background-color: #c81623;
+  color: white;
+  border: none;
+  padding: 0 20px;
+  border-radius: 3px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 地区选择栏 */
+.location-bar {
+  background-color: white;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.location-bar .container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.location-bar span {
+  color: #666;
+}
+
+.location-bar a {
+  color: #333;
+  padding: 2px 5px;
+}
+
+.location-bar .current-location {
+  color: #e4393c;
+  font-weight: bold;
+}
+
+/* 红色分类导航（58qj标志性） */
+.category-nav {
+  background-color: #e4393c;
+  border-bottom: 1px solid #c81623;
+  overflow: hidden;
+}
+
+.category-nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-x: auto; /* 横向滚动 */
+  -webkit-overflow-scrolling: touch;
+}
+
+.category-nav li {
+  white-space: nowrap;
+}
+
+.category-nav a {
+  display: block;
+  color: white;
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.category-nav a:hover {
+  background-color: #c81623;
+  color: white;
+  text-decoration: none;
+}
+
+.category-title {
+  background-color: #c81623;
+  color: white;
+  padding: 8px 15px;
+  font-weight: bold;
+}
+
+/* 主要内容区 */
+.main-content {
+  margin-top: 15px;
+}
+
+/* 顶部定时置顶广告 */
+.top-banner-ad {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.ad-title {
+  background-color: #f5f5f5;
+  padding: 8px 15px;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
+
+.ad-tag {
+  display: inline-block;
+  background-color: #e4393c;
+  color: white;
+  font-size: 12px;
+  padding: 0 5px;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+
+/* 轮播容器 */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-item {
+  display: none;
+}
+
+.carousel-item.active {
+  display: block;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 顶部轮播广告样式 */
+.sticky-ad-link {
+  display: flex;
+  padding: 15px;
+  text-decoration: none;
+}
+
+.sticky-ad-img {
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.sticky-ad-info {
+  margin-left: 15px;
+  flex: 1;
+}
+
+.sticky-ad-info h3 {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.sticky-ad-info p {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.sticky-time {
+  display: inline-block;
+  background-color: #fff8e1;
+  color: #f57c00;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+/* 轮播指示器 */
+.carousel-dots {
+  text-align: center;
+  padding: 10px 0;
+  background-color: white;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ddd;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #e4393c; /* 红色激活点 */
+}
+
+/* 左右布局 */
+.content-layout {
+  display: flex;
+  gap: 15px;
+}
+
+.content-left {
+  flex: 3;
+}
+
+.content-right {
+  flex: 1;
+}
+
+/* 左侧信息列表 */
+.section-header {
+  background-color: #f5f5f5;
+  border-left: 3px solid #e4393c;
+  padding: 8px 15px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.info-list {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.info-item {
+  display: flex;
+  padding: 12px 15px;
+  border-bottom: 1px dashed #eee; /* 虚线分隔（58qj特征） */
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-img img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.info-text {
+  margin-left: 15px;
+  flex: 1;
+}
+
+.info-text h3 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.info-text h3 a {
+  color: #333;
+}
+
+.info-text h3 a:hover {
+  color: #e4393c;
+  text-decoration: underline;
+}
+
+.info-meta {
+  color: #666;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.info-meta span {
+  margin-right: 15px;
+}
+
+.info-price {
+  color: #e4393c;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.info-tag {
+  display: inline-block;
+  background-color: #f5f5f5;
+  color: #666;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+/* 列表中间穿插的广告 */
+.info-ad {
+  padding: 10px 15px;
+  border-bottom: 1px dashed #eee;
+}
+
+.inline-ad-img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+/* 加载更多按钮 */
+.load-more {
+  text-align: center;
+  margin: 15px 0;
+}
+
+/* 右侧广告栏 */
+.sidebar-ad {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.sidebar-ad-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.sidebar-ad h4 {
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* 页脚 */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 30px;
+  font-size: 12px;
+}
+
+.footer p {
+  margin-bottom: 5px;
+}
+
+/* 顶部导航和标题 */
+.top-nav {
+  background-color: #f5f5f5;
+  padding: 5px 0;
+  font-size: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.top-nav .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-nav-right a {
+  color: #e4393c;
+  margin-left: 15px;
+}
+
+.main-header {
+  background-color: white;
+  padding: 10px 0;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 24px;
+  color: #e4393c;
+  text-align: center;
+}
+
+.site-title a {
+  color: #e4393c;
+  text-decoration: none;
+}
+    

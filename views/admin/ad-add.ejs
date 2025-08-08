@@ -1,0 +1,73 @@
+<% 
+  const pageContent = `
+    <div class="admin-header">
+      <h1>添加新广告</h1>
+      <a href="/admin/ads" class="btn btn-secondary">
+        <i class="fa fa-arrow-left"></i> 返回列表
+      </a>
+    </div>
+
+    <div class="admin-form-container">
+      <form method="POST" action="/admin/ads/add" class="admin-form">
+        <div class="form-group">
+          <label for="positionId">广告位置 <span class="required">*</span></label>
+          <select id="positionId" name="positionId" class="form-control" required>
+            <option value="">请选择广告位置</option>
+            <% positions.forEach(position => { %>
+              <option value="<%= position._id %>"><%= position.name %></option>
+            <% }) %>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="title">广告标题 <span class="required">*</span></label>
+          <input type="text" id="title" name="title" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label for="description">广告描述 <span class="required">*</span></label>
+          <textarea id="description" name="description" class="form-control" rows="3" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="imageUrl">图片URL <span class="required">*</span></label>
+          <input type="text" id="imageUrl" name="imageUrl" class="form-control" 
+                 placeholder="可以使用https://picsum.photos/600/300作为测试图片" required>
+        </div>
+
+        <div class="form-group">
+          <label for="tags">标签（用逗号分隔）</label>
+          <input type="text" id="tags" name="tags" class="form-control" placeholder="例如：游戏,优惠,新品">
+        </div>
+
+        <div class="form-group">
+          <label for="link">链接地址 <span class="required">*</span></label>
+          <input type="url" id="link" name="link" class="form-control" placeholder="http://" required>
+        </div>
+
+        <div class="form-group">
+          <label for="sort">排序权重</label>
+          <input type="number" id="sort" name="sort" class="form-control" value="0" min="0">
+          <small>数字越大，排序越靠前</small>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <input type="checkbox" name="isActive" checked> 启用广告
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-success">保存广告</button>
+          <a href="/admin/ads" class="btn btn-secondary">取消</a>
+        </div>
+      </form>
+    </div>
+  `;
+%>
+
+<!-- 引入后台布局 -->
+<%- include('../layouts/admin-main', { 
+  title: '添加广告 - 58信息网后台',
+  content: pageContent
+}) %>

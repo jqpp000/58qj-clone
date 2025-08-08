@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="admin-body">
+  <div class="admin-container">
+    <!-- 侧边栏导航 -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-header">
+        <h2>管理中心</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/admin/ads"><i class="fa fa-bullhorn"></i> 广告管理</a>
+        <a href="/admin/ad-positions"><i class="fa fa-th-large"></i> 广告位置管理</a>
+        <a href="/"><i class="fa fa-home"></i> 返回前台</a>
+      </nav>
+    </aside>
+
+    <!-- 主内容区 -->
+    <div class="admin-main">
+      <!-- 顶部栏 -->
+      <header class="admin-topbar">
+        <h1>58信息网管理后台</h1>
+      </header>
+
+      <!-- 消息提示 -->
+      <% if (success_msg) { %>
+        <div class="alert success">
+          <i class="fa fa-check-circle"></i> <%= success_msg %>
+        </div>
+      <% } %>
+      <% if (error_msg) { %>
+        <div class="alert error">
+          <i class="fa fa-exclamation-circle"></i> <%= error_msg %>
+        </div>
+      <% } %>
+
+      <!-- 页面内容 -->
+      <div class="admin-content-wrapper">
+        <%- content %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
